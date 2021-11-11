@@ -1,16 +1,18 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
-tarefas = [
-    {"texto": "Estudar para a prova", "concluida": False},
-    {"texto": "Passear com o cachorro", "concluida": True},
-    {"texto": "Estudar mais para a prova", "concluida": False},
+URL = "https://scarlet-vicuna-q5ne8wug.ws-us18.gitpod.io"
+
+vendas = [
+    {"name": "Lucas Alixame", "product": "Camiseta Azul - G", "price": 25.00 },
+    {"name": "Ana Maria", "product": "Camiseta Rosa - M", "price": 25.00},
+
 ]
 
 @app.route('/')
 def index():
-    return render_template('index.html', lista=tarefas)
+    return render_template('index.html', lista=vendas , URL=URL)
 
 @app.route('/create')
 def create():
@@ -18,11 +20,14 @@ def create():
 
 @app.route('/save', methods=['POST'])  # <form action="/save" method="POST">
 def save():
-    texto = request.form['texto']      # <input name="texto"/>
-    tarefa = { "texto": texto, "concluida": False }
-    tarefas.append(tarefa)
+    name = request.form['name']    # <input name="name"/>
+    product = request.form['product']    # <input name="product"/>
+    price = request.form['price']    # <input name="price"/>
 
-    return redirect('https://5000-brown-lemur-kiu2j61j.ws-us18.gitpod.io/')
+    venda = { "name": name, "product": product, "price": price}
+    vendas.append(venda)
+
+    return redirect(URL + '/')
 
 app.run(debug=True)
 
