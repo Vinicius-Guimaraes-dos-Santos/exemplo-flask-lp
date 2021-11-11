@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-URL = "https://5000-violet-wolverine-htsyvdxk.ws-us18.gitpod.io"
+URL = "https://5000-white-magpie-i9tjavc8.ws-us18.gitpod.io"
 
 vendas = [
     {"id": 1, "name": "Lucas Alixame", "product": "Camiseta Azul - G", "price": 25.00 },
@@ -32,10 +32,12 @@ def save():
 
     return redirect(URL + '/')
 
-"""@app.route('/delete')
-def delete():
-    return 
-"""
+@app.route('/delete/<id>')
+def delete(id):
+    del(vendas[id - 1])
+
+    return redirect(URL + '/')
+
 
 app.run(debug=True)
 

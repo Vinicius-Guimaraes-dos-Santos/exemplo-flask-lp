@@ -192,7 +192,7 @@
                         <td>{{ venda['price'] }} </td>
                         <td>
                             <!--<a href="/update" class="btn btn-default btn-xs"><i class="fa fa-search"></i> Alterar</a>-->
-                            <a href="/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                            <a href="/delete/{{ venda['id'] }}" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
                         </td>
                     </tr>
                     {% endfor %}
