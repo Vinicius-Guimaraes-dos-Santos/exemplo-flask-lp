@@ -20,9 +20,9 @@ def create():
 
 @app.route('/save', methods=['POST'])  # <form action="/save" method="POST">
 def save():
-    name = request.form['name']    # <input name="name"/>
-    product = request.form['product']    # <input name="product"/>
-    price = request.form['price']    # <input name="price"/>
+    name = str(request.form['name'])    # <input name="name"/>
+    product = str(request.form['product'])    # <input name="product"/>
+    price = float(request.form['price'])    # <input name="price"/>
 
     venda = { "name": name, "product": product, "price": price}
     vendas.append(venda)
