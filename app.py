@@ -2,12 +2,11 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-URL = "https://scarlet-vicuna-q5ne8wug.ws-us18.gitpod.io"
+URL = "https://5000-violet-wolverine-htsyvdxk.ws-us18.gitpod.io"
 
 vendas = [
-    {"name": "Lucas Alixame", "product": "Camiseta Azul - G", "price": 25.00 },
-    {"name": "Ana Maria", "product": "Camiseta Rosa - M", "price": 25.00},
-
+    {"id": 1, "name": "Lucas Alixame", "product": "Camiseta Azul - G", "price": 25.00 },
+    {"id": 2, "name": "Ana Maria", "product": "Camiseta Rosa - M", "price": 25.00},
 ]
 
 @app.route('/')
@@ -20,16 +19,26 @@ def create():
 
 @app.route('/save', methods=['POST'])  # <form action="/save" method="POST">
 def save():
-    name = str(request.form['name'])    # <input name="name"/>
-    product = str(request.form['product'])    # <input name="product"/>
-    price = float(request.form['price'])    # <input name="price"/>
+    name = request.form['name']          # <input name="name"/>
+    product = request.form['product']    # <input name="product"/>
+    price = request.form['price']        # <input name="price"/>
 
-    venda = { "name": name, "product": product, "price": price}
+    price = price.replace(",", ".")
+
+    ultimo = vendas[-1]
+
+    venda = {"id": ultimo["id"] + 1,"name": name, "product": product, "price": float(price)}
     vendas.append(venda)
 
     return redirect(URL + '/')
 
+"""@app.route('/delete')
+def delete():
+    return 
+"""
+
 app.run(debug=True)
+
 
 
 # Implementar o DELETE!! (2,0 pontos)

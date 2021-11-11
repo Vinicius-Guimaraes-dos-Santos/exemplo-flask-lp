@@ -8,16 +8,16 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="{{ url_for('resources', filename= 'admin/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin/bootstrap/css/bootstrap.min.css') }}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- AdminLTE style -->
-  <link rel="stylesheet" href="{{ url_for('resources', filename= 'admin/dist/css/AdminLTE.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin/dist/css/AdminLTE.min.css') }}">
 
-  <link rel="stylesheet" href="{{ url_for('resources', filename= 'admin/dist/css/skins/skin-blue.css') }}">
-  <link rel="stylesheet" href="{{ url_for('resources', filename= 'admin/dist/css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin/dist/css/skins/skin-blue.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin/dist/css/styles.css') }}">
   
 </head>
 
@@ -28,7 +28,7 @@
 
     <a href="/" class="logo">
       <span class="logo-mini"></span>
-      <span class="logo-lg"><img src="/resources/img/logo_text.png" width="100"></span>
+      <span class="logo-lg"><img src="{{ url_for('static', filename='img/logo_text.png') }}" width="100"></span>
     </a>
 
     <nav class="navbar navbar-static-top" role="navigation">
@@ -64,13 +64,13 @@
 
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ url_for('resources', filename= 'img/profiles/default.jpg')}}" class="user-image" alt="User Image">
+              <img src="{{ url_for('static', filename='img/profiles/default.jpg') }}" class="user-image" alt="User Image">
               <span class="hidden-xs">Administrador</span>
             </a>
 
             <ul class="dropdown-menu">
               <li class="user-header">
-                <img src="{{ url_for('resources', filename= 'img/profiles/default.jpg')}}" class="img-circle" alt="User Image">
+                <img src="{{ url_for('static', filename='img/profiles/default.jpg') }}" class="img-circle" alt="User Image">
 
                 <p>
                     Administrador
@@ -103,7 +103,7 @@
 
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{ url_for('resources', filename= 'img/profiles/default.jpg'}}" class="img-circle" alt="User Image">
+          <img src="{{ url_for('static', filename='img/profiles/default.jpg') }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Administrador</p>
@@ -171,7 +171,7 @@
                 </div>
                 <div class="form-group">
                   <label for="price">Preço</label>
-                  <input type="number" class="form-control" id="price" name="price" placeholder="Digite o Valor Pago em R$">
+                  <input type="text" class="form-control" id="price" name="price" placeholder="Digite o Valor Pago em R$">
                 </div>
               </div>
               <!-- /.box-body -->
@@ -199,11 +199,11 @@
     
     
     <!-- jQuery 2.2.3 -->
-    <script src="{{ url_for('resources', filename= 'admin/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='admin/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
     <!-- Bootstrap 3.3.6 -->
-    <script src="{{ url_for('resources', filename= 'admin/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='admin/bootstrap/js/bootstrap.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="{{ url_for('resources', filename= 'admin/dist/js/app.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='admin/dist/js/app.min.js') }}"></script>
     
 </body>
 </html>

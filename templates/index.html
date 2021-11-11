@@ -171,32 +171,34 @@
                 <div class="box-header">
                   <a href="/create" class="btn btn-success">Adicionar Registro</a>
                 </div>
-    
-                  
-    
-                <div class="box-body no-padding">
-                    <table class="table table-hover table-striped">
-                        <th>
-                            <td>Cliente</td>
-                            <td>Produto</td>
-                            <td>Preço Pago</td>
-                            <th style="width: 200px">&nbsp;</th>
-                        </th>
-                    </table>
-                    <tbody>
-                        {% for venda in lista: %}
-                        <tr>
-                            <td>{{ venda['name'] }}</td>
-                            <td>{{ venda['product'] }} </td>
-                            <td>{{ venda['price'] }} </td>
-                            <td>
-                                <a href="#" class="btn btn-default btn-xs"><i class="fa fa-search"></i> Alterar</a>
-                                <a href="#" onclick="return confirm('Deseja realmente excluir esta mensagem?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </div>
+                
+              <div class="box-body no-padding">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <td><strong>#</strong></td>
+                      <td><strong>Cliente</strong></td>
+                      <td><strong>Produto</strong></td>
+                      <td><strong>Preço Pago</strong></td>
+                      <th style="width: 200px">&nbsp;</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for venda in lista: %}
+                    <tr>
+                        <td>{{ venda['id'] }}</td>
+                        <td>{{ venda['name'] }}</td>
+                        <td>{{ venda['product'] }} </td>
+                        <td>{{ venda['price'] }} </td>
+                        <td>
+                            <!--<a href="/update" class="btn btn-default btn-xs"><i class="fa fa-search"></i> Alterar</a>-->
+                            <a href="/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
 
               </div>
           </div>
