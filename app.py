@@ -11,7 +11,7 @@ vendas = [
 
 @app.route('/')
 def index():
-     """
+    """
         Renderizando Tela: INDEX
         Passando variavel: lista(tipo lista de dados)
     """
@@ -61,10 +61,7 @@ def save():
 
 @app.route('/delete/<id>')
 def delete(id):
-    index = int(id)
-
-    del vendas[index - 1]
-
+    del vendas[int(id) - 1]
     return redirect(URL + '/')
 
 
