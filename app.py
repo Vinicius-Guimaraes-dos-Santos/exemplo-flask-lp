@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-URL = "https://5000-white-magpie-i9tjavc8.ws-us18.gitpod.io"
+URL = "https://5000-tomato-gull-87iqvqrx.ws-us18.gitpod.io"
 
 vendas = [
     {"id": 1, "name": "Lucas Alixame", "product": "Camiseta Azul - G", "price": 25.00 },
