@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ vendas = [
 
 @app.route('/')
 def index():
-    return render_template('index.html', lista=vendas , URL=URL)
+    return render_template('index.html', lista=vendas)
 
 @app.route('/create')
 def create():

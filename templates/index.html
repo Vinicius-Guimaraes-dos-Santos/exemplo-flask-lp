@@ -7,16 +7,16 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="{{URL}}/resources/admin/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('/', filename= 'resources/admin/bootstrap/css/bootstrap.min.css') }}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- AdminLTE style -->
-  <link rel="stylesheet" href="{{URL}}/resources/admin/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="{{ url_for('/', filename= 'resources/admin/dist/css/AdminLTE.min.css') }}">
 
-  <link rel="stylesheet" href="{{URL}}/resources/admin/dist/css/skins/skin-blue.css">
-  <link rel="stylesheet" href="{{URL}}/resources/admin/dist/css/styles.css">
+  <link rel="stylesheet" href="{{ url_for('/', filename= 'resources/admin/dist/css/skins/skin-blue.css') }}">
+  <link rel="stylesheet" href="{{ url_for('/', filename= 'resources/admin/dist/css/styles.css') }}">
   
 </head>
 
@@ -25,7 +25,7 @@
 
   <header class="main-header">
 
-    <a href="{{URL}}/" class="logo">
+    <a href="/" class="logo">
       <span class="logo-mini"></span>
       <span class="logo-lg"><img src="/resources/img/logo_text.png" width="100"></span>
     </a>
@@ -63,13 +63,13 @@
 
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{URL}}/resources/img/profiles/default.jpg" class="user-image" alt="User Image">
+              <img src="/resources/img/profiles/default.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs">Administrador</span>
             </a>
 
             <ul class="dropdown-menu">
               <li class="user-header">
-                <img src="{{URL}}/resources/img/profiles/default.jpg" class="img-circle" alt="User Image">
+                <img src="/resources/img/profiles/default.jpg" class="img-circle" alt="User Image">
 
                 <p>
                     Administrador
@@ -102,7 +102,7 @@
 
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{URL}}/resources/img/profiles/default.jpg" class="img-circle" alt="User Image">
+          <img src="/resources/img/profiles/default.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Administrador</p>
@@ -169,7 +169,7 @@
             </div>
     
                 <div class="box-header">
-                  <a href="{{URL}}/create" class="btn btn-success">Adicionar Registro</a>
+                  <a href="/create" class="btn btn-success">Adicionar Registro</a>
                 </div>
     
                   
@@ -219,11 +219,11 @@
 
 
 <!-- jQuery 2.2.3 -->
-<script src="{{URL}}/resources/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/resources/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="{{URL}}/resources/admin/bootstrap/js/bootstrap.min.js"></script>
+<script src="/resources/admin/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
-<script src="{{URL}}/resources/admin/dist/js/app.min.js"></script>
+<script src="/resources/admin/dist/js/app.min.js"></script>
 
 </body>
 </html>
