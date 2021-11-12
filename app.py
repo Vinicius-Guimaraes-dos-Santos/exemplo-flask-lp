@@ -9,6 +9,10 @@ vendas = [
     {"id": 2, "name": "Ana Maria", "product": "Camiseta Rosa - M", "price": 25.00},
 ]
 
+usuarios = [
+    {"id": 1, "login": "admin", "senha": "admin"},
+]
+
 @app.route('/')
 def index():
     """
