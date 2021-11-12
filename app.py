@@ -73,7 +73,7 @@ def delete(id):
     
     return redirect(URL + '/')
 
-@app.route('/search', methods=['POST'])
+@app.route('/search', methods=['POST']) # <form action="/search" method="POST">
 def search():
     """
         Pegando campo de pesquisa via formulario
@@ -98,11 +98,9 @@ def search():
     """
     return render_template('index.html', lista=listaPesquisa)  
 
-
-
 app.run(debug=True)
 
 
 
-# Implementar o DELETE!! (2,0 pontos)
-# Implementar uma pesquisa (3,0 pontos)
+# Implementar o DELETE!! (2,0 pontos)   - FEITO!
+# Implementar uma pesquisa (3,0 pontos) - FEITO!
