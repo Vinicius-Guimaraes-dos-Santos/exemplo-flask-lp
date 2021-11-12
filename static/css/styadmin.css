@@ -1,0 +1,10 @@
+box-search{
+    position: relative;
+    margin: 5px;
+    margin-left: 80%
+}
+
+input-search{
+    width: 5rem;
+    right: 2rem;
+}

@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-URL = "https://5000-beige-horse-m0qsly8z.ws-us18.gitpod.io"
+URL = "https://5000-peach-camel-jc4tsg90.ws-us18.gitpod.io"
 
 vendas = [
     {"id": 1, "name": "Lucas Alixame", "product": "Camiseta Azul - G", "price": 25.00 },
@@ -73,7 +73,7 @@ def delete(id):
     
     return redirect(URL + '/')
 
-@app.route('?search', methods=['POST'])
+@app.route('/search', methods=['POST'])
 def search():
     search = request.form['search']          # <input name="name"/>
 
@@ -83,7 +83,8 @@ def search():
         if search in venda["name"] or search in venda["product"]:
             listaPesquisa.append(venda)
 
-    return render_template('index.html', lista=listaPesquisa)
+    return render_template('index.html', lista=listaPesquisa)  
+
 
 
 app.run(debug=True)

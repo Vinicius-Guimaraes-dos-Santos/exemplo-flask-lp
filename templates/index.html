@@ -17,7 +17,6 @@
 
   <link rel="stylesheet" href="{{ url_for('static', filename='admin/dist/css/skins/skin-blue.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='admin/dist/css/styles.css') }}">
-  
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini ">
@@ -154,10 +153,10 @@
           <div class="col-md-12">
               <div class="box box-primary">
     
-            <div class="box-tools " style="position: relative; margin: 5px; margin-left: 90%;">
-              <form action="?search=" method="GET">
+            <div class="box-tools" style="margin: 1rem;">
+              <form action="/search" method="POST">
     
-                <div class="input-group input-group-sm" style="width: 150px;">
+                <div class="input-group input-group-sm">
                   <input type="text" name="search" class="form-control pull-left" placeholder="Pesquisar">
     
                   <div class="input-group-btn">
@@ -180,7 +179,7 @@
                       <td><strong>Cliente</strong></td>
                       <td><strong>Produto</strong></td>
                       <td><strong>Preço Pago</strong></td>
-                      <th style="width: 200px">&nbsp;</th>
+                      <th style="width: 100px">&nbsp;</th>
                     </tr>
                   </thead>
                   <tbody>
