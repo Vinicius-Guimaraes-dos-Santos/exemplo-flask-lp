@@ -1,11 +1,11 @@
 .backgound-page{
-    background-image: url(/resources/img/background.jpg);
+    background-image: url(/static/img/background.jpg);
     width: auto;
     height: auto;
 }
 
 .backgound-login{
-    background-image: url(/resources/img/background.jpg);
+    background-image: url(/static/img/background.jpg);
     width: auto;
     height: auto;
 }

@@ -10,7 +10,7 @@ vendas = [
 ]
 
 usuarios = [
-    {"id": 1, "login": "admin", "senha": "admin"},
+    {"id": 1, "login": "admin", "password": "admin"},
 ]
 
 @app.route('/')
@@ -19,7 +19,30 @@ def index():
         Renderizando Tela: INDEX
         Passando variavel: lista(lista de dados)
     """
-    return render_template('index.html', lista=vendas)
+    return render_template('index.html')
+
+@app.route('/login', methods=['POST'])
+def login():
+    login = request.form['login']          # <input name="login"/>
+    password = request.form['password']    # <input name="password"/>
+
+    for indice, usuario in enumerate(usuarios):
+        if usuario["login"] == login and usuario["password"] == password:
+            return redirect(URL + '/panel')
+        else:
+            return redirect(URL + '/')
+
+@app.route('/logout')
+def logout():
+    return redirect(URL + '/')
+
+@app.route('/panel')
+def panel():
+    """
+        Renderizando Tela: PANEL
+        Passando variavel: lista(lista de dados)
+    """
+    return render_template('panel.html', lista=vendas)
 
 @app.route('/create')
 def create():
