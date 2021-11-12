@@ -87,7 +87,7 @@ def save():
     """
         Redirecionando para a pagina principal
     """
-    return redirect(URL + '/')
+    return redirect(URL + '/panel')
 
 @app.route('/delete/<id>')
 def delete(id):
@@ -98,7 +98,7 @@ def delete(id):
         if venda["id"] == int(id):
             del vendas[indice]
     
-    return redirect(URL + '/')
+    return redirect(URL + '/panel')
 
 @app.route('/update/<id>')
 def listUpdate(id):
@@ -134,7 +134,7 @@ def update(id):
             venda["product"] = product
             venda["price"] = price
 
-    return redirect(URL + '/')
+    return redirect(URL + '/panel')
 
 @app.route('/search', methods=['POST']) # <form action="/search" method="POST">
 def search():
@@ -156,10 +156,10 @@ def search():
             listaPesquisa.append(venda)
 
     """
-        Renderizando Tela: INDEX
+        Renderizando Tela: PANEL
         Passando variavel: listaPesquisa(lista de dados)
     """
-    return render_template('index.html', lista=listaPesquisa)  
+    return render_template('panel.html', lista=listaPesquisa)  
 
 app.run(debug=True)
 
