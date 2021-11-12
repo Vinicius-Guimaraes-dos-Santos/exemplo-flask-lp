@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-URL = "https://5000-tomato-gull-87iqvqrx.ws-us18.gitpod.io"
+URL = "https://5000-beige-horse-m0qsly8z.ws-us18.gitpod.io"
 
 vendas = [
     {"id": 1, "name": "Lucas Alixame", "product": "Camiseta Azul - G", "price": 25.00 },
@@ -39,9 +39,12 @@ def save():
     price = price.replace(",", ".")
 
     """
-        Identificando ultimo elemento dentro da lista
+        Verificando se a lista esta vazia e Identificando ultimo elemento dentro da lista
     """
-    ultimo = vendas[-1]
+    if vendas:
+        ultimo = vendas[-1]
+    else:
+        ultimo = {"id": 0}
 
     """
         Moldando Lista e definindo dados
@@ -61,8 +64,26 @@ def save():
 
 @app.route('/delete/<id>')
 def delete(id):
-    del vendas[int(id) - 1]
+    """
+        Percorrendo a lista, trazendo indice e elemento para excluir o elemento certo
+    """
+    for indice, venda in enumerate(vendas):
+        if venda["id"] == int(id):
+            del vendas[indice]
+    
     return redirect(URL + '/')
+
+@app.route('?search', methods=['POST'])
+def search():
+    search = request.form['search']          # <input name="name"/>
+
+    listaPesquisa = []
+
+    for indice, venda in enumerate(vendas):
+        if search in venda["name"] or search in venda["product"]:
+            listaPesquisa.append(venda)
+
+    return render_template('index.html', lista=listaPesquisa)
 
 
 app.run(debug=True)
