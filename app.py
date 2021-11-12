@@ -13,7 +13,7 @@ vendas = [
 def index():
     """
         Renderizando Tela: INDEX
-        Passando variavel: lista(tipo lista de dados)
+        Passando variavel: lista(lista de dados)
     """
     return render_template('index.html', lista=vendas)
 
@@ -75,14 +75,27 @@ def delete(id):
 
 @app.route('/search', methods=['POST'])
 def search():
+    """
+        Pegando campo de pesquisa via formulario
+    """
     search = request.form['search']          # <input name="name"/>
 
+    """
+        Criando uma nova lista para armazenar o resultado da pesquisa
+    """
     listaPesquisa = []
 
+    """
+        Percorrendo a lista, salvando na nova lista os elementos pesquisados
+    """
     for indice, venda in enumerate(vendas):
         if search in venda["name"] or search in venda["product"]:
             listaPesquisa.append(venda)
 
+    """
+        Renderizando Tela: INDEX
+        Passando variavel: listaPesquisa(lista de dados)
+    """
     return render_template('index.html', lista=listaPesquisa)  
 
 
