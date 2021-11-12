@@ -73,6 +73,42 @@ def delete(id):
     
     return redirect(URL + '/')
 
+@app.route('/update/<id>')
+def listUpdate(id):
+    """
+        Percorrendo a lista, trazendo indice e elemento para alterar o elemento certo
+    """
+    for indice, venda in enumerate(vendas):
+        if venda["id"] == int(id):
+            elemento = vendas[indice]
+    
+    return render_template('update.html', lista=elemento)
+
+@app.route('/update/<id>', methods=['POST'])
+def update(id):
+    """
+        Pegando Dados do Formulario
+    """
+    name = request.form['name']          # <input name="name"/>
+    product = request.form['product']    # <input name="product"/>
+    price = request.form['price']        # <input name="price"/>
+
+    """
+        Aplicando REPLACE no preço (trocando , por .)
+    """
+    price = price.replace(",", ".")
+
+    """
+        Percorrendo a lista, trazendo indice e elemento para alterar o elemento certo
+    """
+    for indice, venda in enumerate(vendas):
+        if venda["id"] == int(id):
+            venda["name"] = name
+            venda["product"] = product
+            venda["price"] = price
+
+    return redirect(URL + '/')
+
 @app.route('/search', methods=['POST']) # <form action="/search" method="POST">
 def search():
     """

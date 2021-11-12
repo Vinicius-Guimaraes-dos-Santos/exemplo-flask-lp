@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +18,7 @@
 
   <link rel="stylesheet" href="{{ url_for('static', filename='admin/dist/css/skins/skin-blue.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='admin/dist/css/styles.css') }}">
+  
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini ">
@@ -133,73 +135,56 @@
 
 <body>
 
-    <!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
+      <h1>
+        <a href="/"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a> Voltar
+      </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard active"></i> Registros</a></li>
+        <li><a href="/"><i class="fa fa-dashboard"></i> Registros</a></li>
+        <li class="active"><a href="#">Alterar</a></li>
       </ol>
     </section>
     
     <!-- Main content -->
     <section class="content">
     
-      <div class="text-center">
-        <h1>Lista de Vendas</h1>
-      </div>
-    
       <div class="row">
           <div class="col-md-12">
-              <div class="box box-primary">
-    
-            <div class="box-tools" style="margin: 1rem;">
-              <form action="/search" method="POST">
-    
-                <div class="input-group input-group-sm">
-                  <input type="text" name="search" class="form-control pull-left" placeholder="Pesquisar">
-    
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-    
-              </form>
+              <div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title">Alterar Registro</h3>
             </div>
-    
-                <div class="box-header">
-                  <a href="/create" class="btn btn-success">Adicionar Registro</a>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" action="/update/{{ lista['id'] }}" method="post">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="id">Id</label>
+                  <input type="text" class="form-control" id="id" name="id" value="{{ lista['id'] }}" readonly>
                 </div>
-                
-              <div class="box-body no-padding">
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <td><strong>#</strong></td>
-                      <td><strong>Cliente</strong></td>
-                      <td><strong>Produto</strong></td>
-                      <td><strong>Preço Pago</strong></td>
-                      <th style="width: 200px">&nbsp;</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {% for venda in lista: %}
-                    <tr>
-                        <td>{{ venda['id'] }}</td>
-                        <td>{{ venda['name'] }}</td>
-                        <td>{{ venda['product'] }} </td>
-                        <td>{{ venda['price'] }} </td>
-                        <td>
-                            <a href="/update/{{ venda['id'] }}" class="btn btn-default btn-xs"><i class="fa fa-pencil-square-o"></i> Alterar</a>
-                            <a href="/delete/{{ venda['id'] }}" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                  </tbody>
-                </table>
-              </div>
 
+                <div class="form-group">
+                  <label for="name">Nome</label>
+                  <input type="text" class="form-control" id="name" name="name" value="{{ lista['name'] }}">
+                </div>
+                <div class="form-group">
+                  <label for="product">Produto</label>
+                  <input type="text" class="form-control" id="product" name="product" value="{{ lista['product'] }}">
+                </div>
+                <div class="form-group">
+                  <label for="price">Preço</label>
+                  <input type="text" class="form-control" id="price" name="price" value="{{ lista['price'] }}">
+                </div>
               </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button type="submit" class="btn btn-success">Salvar</button>
+              </div>
+            </form>
+          </div>
           </div>
       </div>
     
@@ -208,23 +193,22 @@
     </div>
     <!-- /.content-wrapper -->
 
+    <footer class="main-footer">
+
+        <strong>Copyright &copy; 2021 <a href="#">LUVI</a>.</strong> Todos os direitos reservados.
     
-  <footer class="main-footer">
-
-    <strong>Copyright &copy; 2021 <a href="#">LUVI</a>.</strong> Todos os direitos reservados.
-
-  </footer>
-
-</div>
-
-
-
-<!-- jQuery 2.2.3 -->
-<script src="{{ url_for('static', filename='admin/plugins/jQuery/jquery-2.2.3.min.js') }}""></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="{{ url_for('static', filename='admin/bootstrap/js/bootstrap.min.js') }}""></script>
-<!-- AdminLTE App -->
-<script src="{{ url_for('static', filename='admin/dist/js/app.min.js') }}""></script>
-
+      </footer>
+    
+    </div>
+    
+    
+    
+    <!-- jQuery 2.2.3 -->
+    <script src="{{ url_for('static', filename='admin/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="{{ url_for('static', filename='admin/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ url_for('static', filename='admin/dist/js/app.min.js') }}"></script>
+    
 </body>
 </html>
