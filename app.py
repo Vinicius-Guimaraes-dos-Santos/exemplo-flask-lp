@@ -125,7 +125,7 @@ def search():
         Percorrendo a lista, salvando na nova lista os elementos pesquisados
     """
     for indice, venda in enumerate(vendas):
-        if search in venda["name"] or search in venda["product"]:
+        if search.lower() in venda["name"].lower() or search.lower() in venda["product"].lower():
             listaPesquisa.append(venda)
 
     """
